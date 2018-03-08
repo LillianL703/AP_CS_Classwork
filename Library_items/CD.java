@@ -1,17 +1,18 @@
-
+package Library_items;
 import java.util.Date;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This program is to implement a library system (mainly for books and CDs). 
+ * (Version 2)
+ * Editor: Lillian Luo from S3C7.
+ * Instructor: Daniel Gunn
  */
 
 /**
  *
  * @author Lillian
  */
-public class CD extends LibraryItem{
+public class CD extends Libraryitem{
         private String genre;
         public CD(){
             super();
@@ -24,8 +25,18 @@ public class CD extends LibraryItem{
         public String getgenre(){
             return genre;
         }
+        //Override
         public void printDetails(){
-            super.printDetails();
-            System.out.println("Genre: " + genre + "\n");
+            System.out.println("Title: "+ title);
+            System.out.println("Artist: "+ this.author_artist());
+            System.out.println("ItemID: " + this.itemID);
+            if(this.onloan){
+                System.out.println("This CD is not on loan");
+            }else{
+                System.out.println("Sorry, this CD is on loan");
+            }
+            System.out.println("Due date: " + this.duedate);
+            System.out.println("Music type: " + this.genre +"\n");
         }
+    
     }

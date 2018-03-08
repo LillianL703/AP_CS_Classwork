@@ -1,17 +1,18 @@
-
+package Library_items;
 import java.util.Date;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This program is to implement a library system (mainly for books and CDs). 
+ * (Version 2)
+ * Editor: Lillian Luo from S3C7.
+ * Instructor: Daniel Gunn
  */
 
 /**
  *
  * @author Lillian
  */
-public class Book extends LibraryItem{
+public class Book extends Libraryitem{
         private boolean IsRequested;
         public Book(){
             super();
@@ -24,8 +25,23 @@ public class Book extends LibraryItem{
         public boolean getIsRequested(){
             return IsRequested;
         }
+        
+        //Override
         public void printDetails(){
-            super.printDetails();
-            System.out.println("Is requested or not: " + IsRequested + "\n");
+            System.out.println("Title: "+ title);
+            System.out.println("Author: "+ this.author_artist());
+            System.out.println("ItemID: " + this.itemID);
+            if(this.onloan){
+                System.out.println("Sorry, this book is on loan");
+            }else{
+                System.out.println("This book is not on loan");
+            }
+            System.out.println("Due date: " + this.duedate);
+            if(this.IsRequested){
+                System.out.println("This book is requested by another borrower\n");
+            }else{
+                System.out.println("This book is not requested by another borrower\n");
+            }
         }
-    }
+}
+   

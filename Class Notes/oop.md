@@ -24,3 +24,23 @@ To activate. One usually speaks of invoking a function or routine in a program. 
 
 ##Setter methods:
 "Setters" is a term for a method that sets the value of a variable.
+
+##Fax Machine:
+Attributes: color, ink color, size
+Behaviors: print
+
+##Audio Speaker: 
+Attributes: color, size, volume range
+Behaviors: play
+
+##Computer Mouse:
+Attributes: color, size, pattern
+Behaviors: click, slide
+
+##TV Remote Control:
+Attributes: size, color, number of buttons
+Behaviors: push-button
+
+##Dice:
+Attributes: size, color, texture, pattern
+Behaviors: roll

@@ -1,6 +1,10 @@
+
+import java.util.ArrayList;
+import java.util.Collections;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * Version 2.
  * and open the template in the editor.
  */
 
@@ -8,13 +12,25 @@
  *
  * @author Lillian
  */
-public abstract class Shape {
+public abstract class Shape implements Comparable {
     private String name;
     public abstract double area(); 
     public abstract double perimeter();
-    
-    
-    
+
+    @Override
+    public int compareTo(Object o) {
+        Shape s = (Shape) o;
+        if(this.perimeter() > s.perimeter()){
+            return 1;
+        }
+        else if(this.perimeter() < s.perimeter()){
+            return -1;
+        }
+        else{
+            return 0;
+        }
+    }
+     
     public Shape(String shapeName) {
         name = shapeName;
     }
@@ -25,19 +41,28 @@ public abstract class Shape {
         return perimeter() / 2; 
     }
     
+    public String toString(){
+        return this.name + " area: " + this.area() + "; perimeter: " + this.perimeter();
+    }
         
      public static void main(String[] args) { 
+        ArrayList<Shape> shapes = new ArrayList<>();
         
         Square s = new Square(2.0, "Square");
         Circle c = new Circle(3.0, "Circle");
         Triangle t = new Triangle(3.0, 4.0, 5.0, "Triangle");
         Rectanguler r = new Rectanguler(1.0, 2.0, "Rectanguler");
+        shapes.add(s);
+        shapes.add(c);
+        shapes.add(t);
+        shapes.add(r);
         
-        System.out.println("The perimeter of the square is: " + s.perimeter() + "\n" + "The area of the square is: " + s.area() + "\n");
-        System.out.println("The perimeter of the circle is: " + c.perimeter() + "\n" + "The area of the circle is: " + c.area() + "\n");
-        System.out.println("The perimeter of the triangle is: " + t.perimeter() + "\n" + "The area of the triangle is: " + t.area() + "\n");
-        System.out.println("The perimeter of the rectanguler is: " + r.perimeter() + "\n" + "The area of the rectanguler is: " + r.area() + "\n");
-    }
+        Collections.sort(shapes);
+        
+        for(Shape s1: shapes){
+            System.out.println(s1.toString());
+        }
+     }
 }
 
  class Square extends Shape {
